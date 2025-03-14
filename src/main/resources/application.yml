@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: api.elsabordesion
+  output:
+    ansi:
+      enabled: ALWAYS
+  datasource:
+    url: jdbc:h2:mem:el-sabor-de-sion-bd
