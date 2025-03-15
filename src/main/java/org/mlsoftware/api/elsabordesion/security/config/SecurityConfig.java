@@ -34,18 +34,18 @@ public class SecurityConfig {
                 .headers(headers -> headers
                         .frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin) // Permitir iframes para H2
                 )
-                
+
                 .build();
     }
 
-
     @Bean
-    AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+    AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
+            throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
     @Bean
-    AuthenticationProvider authenticationProvider(UserDetailsServiceImpl userDetailService){
+    AuthenticationProvider authenticationProvider(UserDetailsServiceImpl userDetailService) {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setPasswordEncoder(passwordEncoder());
         provider.setUserDetailsService(userDetailService);
